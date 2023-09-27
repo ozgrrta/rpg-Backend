@@ -15,21 +15,21 @@ namespace Character.Api.Controllers
 		}
 
 		[HttpGet("GetAll")]
-		public ActionResult<List<Domain.Models.Character>> Get()
+		public async Task<ActionResult<List<Domain.Models.Character>>> Get()
 		{
-			return Ok(_characterService.GetAllCharacters());
+			return Ok(await _characterService.GetAllCharacters());
 		}
 
 		[HttpGet("{id}")]
-		public ActionResult<Domain.Models.Character> GetSingle(int id)
+		public async Task<ActionResult<Domain.Models.Character>> GetSingle(int id)
 		{
-			return Ok(_characterService.GetCharacterById(id));
+			return Ok(await _characterService.GetCharacterById(id));
 		}
 
 		[HttpPost]
-		public ActionResult<List<Domain.Models.Character>> AddCharacter(Domain.Models.Character newCharacter)
+		public async Task<ActionResult<List<Domain.Models.Character>>> AddCharacter(Domain.Models.Character newCharacter)
 		{
-			return Ok(_characterService.AddCharacter(newCharacter));
+			return Ok(await _characterService.AddCharacter(newCharacter));
 		}
 	}
 }

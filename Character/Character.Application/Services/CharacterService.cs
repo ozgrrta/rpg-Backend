@@ -15,19 +15,19 @@ namespace Character.Application.Services
 			new Domain.Models.Character { Id = 1, Name = "Sam" }
 		};
 
-		public List<Domain.Models.Character> AddCharacter(Domain.Models.Character newCharacter)
+		public async Task<List<Domain.Models.Character>> AddCharacter(Domain.Models.Character newCharacter)
 		{
 			characters.Add(newCharacter);
 
 			return characters;
 		}
 
-		public List<Domain.Models.Character> GetAllCharacters()
+		public async Task<List<Domain.Models.Character>> GetAllCharacters()
 		{
 			return characters;
 		}
 
-		public Domain.Models.Character GetCharacterById(int id)
+		public async Task<Domain.Models.Character> GetCharacterById(int id)
 		{
 			var character = characters.FirstOrDefault(c => c.Id == id);
 
