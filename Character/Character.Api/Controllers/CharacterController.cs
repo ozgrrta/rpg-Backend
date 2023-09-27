@@ -1,4 +1,4 @@
-﻿using Character.Api.Models;
+﻿using Character.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Character.Api.Controllers
@@ -7,30 +7,29 @@ namespace Character.Api.Controllers
 	[Route("api/[controller]")]
 	public class CharacterController : ControllerBase
 	{
-		private static List<Models.Character> characters = new List<Models.Character>
+		private readonly ICharacterService _characterService;
+
+		public CharacterController(ICharacterService characterService)
 		{
-			new Models.Character(),
-			new Models.Character { Id = 1, Name = "Sam" }
-		};
+			_characterService = characterService;
+		}
 
 		[HttpGet("GetAll")]
-		public ActionResult<List<Models.Character>> Get()
+		public ActionResult<List<Domain.Models.Character>> Get()
 		{
-			return Ok(characters);
+			return Ok(_characterService.GetAllCharacters());
 		}
 
 		[HttpGet("{id}")]
-		public ActionResult<Models.Character> GetSingle(int id)
+		public ActionResult<Domain.Models.Character> GetSingle(int id)
 		{
-			return Ok(characters.FirstOrDefault(c => c.Id == id));
+			return Ok(_characterService.GetCharacterById(id));
 		}
 
 		[HttpPost]
-		public ActionResult<List<Models.Character>> AddCharacter(Models.Character newCharacter)
+		public ActionResult<List<Domain.Models.Character>> AddCharacter(Domain.Models.Character newCharacter)
 		{
-			characters.Add(newCharacter);
-
-			return Ok(characters);
+			return Ok(_characterService.AddCharacter(newCharacter));
 		}
 	}
 }
