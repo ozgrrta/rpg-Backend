@@ -15,28 +15,35 @@ namespace Character.Application.Services
 			new Domain.Models.Character { Id = 1, Name = "Sam" }
 		};
 
-		public async Task<List<Domain.Models.Character>> AddCharacter(Domain.Models.Character newCharacter)
+		public async Task<ServiceResponse<List<Domain.Models.Character>>> AddCharacter(Domain.Models.Character newCharacter)
 		{
+			ServiceResponse<List<Domain.Models.Character>> serviceResponse = new ServiceResponse<List<Domain.Models.Character>>();
+
 			characters.Add(newCharacter);
 
-			return characters;
+			serviceResponse.Data = characters;
+
+			return serviceResponse;
 		}
 
-		public async Task<List<Domain.Models.Character>> GetAllCharacters()
+		public async Task<ServiceResponse<List<Domain.Models.Character>>> GetAllCharacters()
 		{
-			return characters;
+			ServiceResponse<List<Domain.Models.Character>> serviceResponse = new ServiceResponse<List<Domain.Models.Character>>();
+
+			serviceResponse.Data = characters;
+
+			return serviceResponse;
 		}
 
-		public async Task<Domain.Models.Character> GetCharacterById(int id)
+		public async Task<ServiceResponse<Domain.Models.Character>> GetCharacterById(int id)
 		{
+			ServiceResponse<Domain.Models.Character> serviceResponse = new ServiceResponse<Domain.Models.Character>();
+
 			var character = characters.FirstOrDefault(c => c.Id == id);
 
-			if (character != null)
-			{
-				return character;
-			}
+			serviceResponse.Data = character;
 
-			throw new Exception("Character not found");
+			return serviceResponse;
 		}
 	}
 }
