@@ -29,7 +29,14 @@ namespace Character.Application.Services
 
 		public Domain.Models.Character GetCharacterById(int id)
 		{
-			return characters.FirstOrDefault(c => c.Id == id);
+			var character = characters.FirstOrDefault(c => c.Id == id);
+
+			if (character != null)
+			{
+				return character;
+			}
+
+			throw new Exception("Character not found");
 		}
 	}
 }
