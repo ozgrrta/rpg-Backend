@@ -1,4 +1,5 @@
-﻿using Character.Domain.Models;
+﻿using Character.Domain.Dtos.Character;
+using Character.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Character.Application.Services
 {
 	public interface ICharacterService
 	{
-		Task<ServiceResponse<List<Domain.Models.Character>>> GetAllCharacters();
-		Task<ServiceResponse<Domain.Models.Character>> GetCharacterById(int id);
-		Task<ServiceResponse<List<Domain.Models.Character>>> AddCharacter(Domain.Models.Character newCharacter);
+		Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters();
+		Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id);
+		Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter);
 	}
 }

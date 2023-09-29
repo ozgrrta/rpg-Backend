@@ -1,4 +1,5 @@
-﻿using Character.Domain.Models;
+﻿using Character.Domain.Dtos.Character;
+using Character.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace Character.Application.Services
 			new Domain.Models.Character { Id = 1, Name = "Sam" }
 		};
 
-		public async Task<ServiceResponse<List<Domain.Models.Character>>> AddCharacter(Domain.Models.Character newCharacter)
+		public async Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter)
 		{
-			ServiceResponse<List<Domain.Models.Character>> serviceResponse = new ServiceResponse<List<Domain.Models.Character>>();
+			ServiceResponse<List<GetCharacterDto>> serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
 
 			characters.Add(newCharacter);
 
@@ -26,16 +27,16 @@ namespace Character.Application.Services
 			return serviceResponse;
 		}
 
-		public async Task<ServiceResponse<List<Domain.Models.Character>>> GetAllCharacters()
+		public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
 		{
-			ServiceResponse<List<Domain.Models.Character>> serviceResponse = new ServiceResponse<List<Domain.Models.Character>>();
+			ServiceResponse<List<GetCharacterDto>> serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
 
 			serviceResponse.Data = characters;
 
 			return serviceResponse;
 		}
 
-		public async Task<ServiceResponse<Domain.Models.Character>> GetCharacterById(int id)
+		public async Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id)
 		{
 			ServiceResponse<Domain.Models.Character> serviceResponse = new ServiceResponse<Domain.Models.Character>();
 
