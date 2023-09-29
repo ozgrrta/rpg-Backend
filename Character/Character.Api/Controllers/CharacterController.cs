@@ -1,5 +1,4 @@
 ﻿using Character.Application.Services;
-using Character.Domain.Dtos.Character;
 using Character.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
