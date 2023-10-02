@@ -61,16 +61,29 @@ namespace Character.Application.Services
 		{
 			ServiceResponse<GetCharacterDto> serviceResponse = new ServiceResponse<GetCharacterDto>();
 
-			var character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
+			try
+			{
+				var character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
 
-			character.Name = updatedCharacter.Name;
-			character.HitPoints = updatedCharacter.HitPoints;
-			character.Strength = updatedCharacter.Strength;
-			character.Defence = updatedCharacter.Defence;
-			character.Intelligence = updatedCharacter.Intelligence;
-			character.Class = updatedCharacter.Class;
+				if (character == null)
+				{
+					throw new Exception($"Character with Id '{updatedCharacter.Id}' not found.");
+				}
 
-			serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
+				character.Name = updatedCharacter.Name;
+				character.HitPoints = updatedCharacter.HitPoints;
+				character.Strength = updatedCharacter.Strength;
+				character.Defence = updatedCharacter.Defence;
+				character.Intelligence = updatedCharacter.Intelligence;
+				character.Class = updatedCharacter.Class;
+
+				serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
+			}
+			catch (Exception ex)
+			{
+				serviceResponse.Success = false;
+				serviceResponse.Message = ex.Message;
+			}
 
 			return serviceResponse;
 		}
