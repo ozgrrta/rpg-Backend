@@ -43,7 +43,20 @@ namespace Character.Api.Controllers
 				return NotFound(response);
 			}
 
-			return Ok();
+			return Ok(response);
+		}
+
+		[HttpDelete("{id}")]
+		public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> DeleteCharacter(int id)
+		{
+			var response = await _characterService.DeleteCharacters(id);
+
+			if (response.Data == null)
+			{
+				return NotFound(response);
+			}
+
+			return Ok(response);
 		}
 	}
 }
