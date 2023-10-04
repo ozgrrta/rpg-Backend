@@ -1,7 +1,7 @@
-﻿using Character.Application.Services;
+﻿using CharacterApplication.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Character.Application
+namespace CharacterApplication
 {
 	public static class DebendencyInjection
 	{
