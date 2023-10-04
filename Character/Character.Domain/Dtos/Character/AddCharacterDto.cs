@@ -1,14 +1,14 @@
-﻿using Character.Domain.Models;
+﻿using CharacterDomain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Character.Domain.Dtos.Character
+namespace CharacterDomain.Dtos.Character
 {
-    public class AddCharacterDto
-    {
+	public class AddCharacterDto
+	{
 		public string Name { get; set; } = "Frodo";
 		public int HitPoints { get; set; } = 100;
 		public int Strength { get; set; } = 10;

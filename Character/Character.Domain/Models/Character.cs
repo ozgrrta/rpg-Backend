@@ -1,4 +1,4 @@
-﻿namespace Character.Domain.Models
+﻿namespace CharacterDomain.Models
 {
 	public class Character
 	{

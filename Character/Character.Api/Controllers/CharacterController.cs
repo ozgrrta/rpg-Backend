@@ -1,8 +1,9 @@
-﻿using Character.Application.Services;
-using Character.Domain.Models;
+﻿using CharacterApplication.Services;
+using CharacterDomain.Dtos.Character;
+using CharacterDomain.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Character.Api.Controllers
+namespace CharacterApi.Controllers
 {
 	[ApiController]
 	[Route("api/[controller]")]

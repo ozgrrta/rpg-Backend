@@ -1,14 +1,15 @@
 ﻿using AutoMapper;
-using Character.Domain.Dtos.Character;
+using CharacterDomain.Dtos.Character;
+using CharacterDomain.Models;
 
-namespace Character.Application.Configurations.AutoMapper
+namespace CharacterApplication.Configurations.AutoMapper
 {
 	public class AutoMapperProfile : Profile
 	{
 		public AutoMapperProfile()
 		{
-			CreateMap<Domain.Models.Character, GetCharacterDto>();
-			CreateMap<AddCharacterDto, Domain.Models.Character>();
+			CreateMap<Character, GetCharacterDto>();
+			CreateMap<AddCharacterDto, Character>();
 		}
 	}
 }
