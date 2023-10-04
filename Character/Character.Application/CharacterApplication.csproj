@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Character.Domain\Character.Domain.csproj" />
+    <ProjectReference Include="..\Character.Domain\CharacterDomain.csproj" />
+    <ProjectReference Include="..\Character.Persistence\CharacterPersistence.csproj" />
   </ItemGroup>
 
 </Project>
