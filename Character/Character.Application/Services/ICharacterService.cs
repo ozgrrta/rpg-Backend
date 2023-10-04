@@ -1,7 +1,7 @@
-﻿using Character.Domain.Dtos.Character;
-using Character.Domain.Models;
+﻿using CharacterDomain.Dtos.Character;
+using CharacterDomain.Models;
 
-namespace Character.Application.Services
+namespace CharacterApplication.Services
 {
 	public interface ICharacterService
 	{
