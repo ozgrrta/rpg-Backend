@@ -1,10 +1,14 @@
-global using Character.Domain.Dtos.Character;
-using Character.Application;
-
+global using CharacterDomain.Dtos.Character;
+using CharacterApplication;
+using CharacterPersistence;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<CharacterContext>(options => 
+	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
