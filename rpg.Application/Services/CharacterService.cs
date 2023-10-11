@@ -15,7 +15,7 @@ namespace rpg.Application.Services
         public CharacterService(IMapper mapper, rpgDbContext context)
         {
             _mapper = mapper;
-			_context = context;
+            _context = context;
         }
 
         public async Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter)

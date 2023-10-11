@@ -6,7 +6,7 @@ namespace rpg.Application
 {
 	public static class DependencyInjection
 	{
-		public static IServiceCollection AddCharacterApplication(this IServiceCollection services)
+		public static IServiceCollection AddRpgApplication(this IServiceCollection services)
 		{
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 			services.AddScoped<ICharacterService, CharacterService>();

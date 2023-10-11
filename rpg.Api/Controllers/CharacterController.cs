@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using rpg.Application.Interfaces;
 using rpg.Domain.Dtos.Character;
 using rpg.Domain.Models;
 
 namespace rpg.Api.Controllers
 {
-    [ApiController]
+	[ApiController]
 	[Route("api/[controller]/[action]")]
 	public class CharacterController : ControllerBase
 	{
